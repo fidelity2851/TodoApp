@@ -1,22 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class=" housing position-relative">
+
+      <div class="header_con">
+        <div class="container px-0">
+          <div class="col d-flex justify-content-between">
+            <span class="menu"> <i class="fas fa-bars"></i> </span>
+            <span class="menu">TODO APP</span>
+          </div>
+        </div>
+      </div>
+
+      <router-view />
+      
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+export default {
+  
+}
+</script>
+
 
 <style scoped>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
