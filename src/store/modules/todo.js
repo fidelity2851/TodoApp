@@ -1,19 +1,9 @@
 // import axios from 'axios'
+//import { db } from '../../firebase/db'
 
 const state = {
     todos: [
-        {
-            id: 1,
-            task: 'making money',
-            status: false,
-            date: new Date().toLocaleDateString(),
-        },
-        {
-            id: 2,
-            task: 'making money',
-            status: false,
-            date: new Date().toLocaleDateString(),
-        },
+        
     ],
     showToast: false,
 }
@@ -31,18 +21,26 @@ const actions = {
             status: false,
             date: new Date().toLocaleDateString(),
         }
+        
         commit('newTodo', response),
 
         state.showToast = true,
         setTimeout(() => state.showToast = false, 1500)
+    },
+
+    async removeTodo({ commit }, id) {
+
+
+        commit('removeTodo', id)
     }
+    
     
 }
  
 const mutations = {
     newTodo: (state, todo) => state.todos.unshift(todo),
 
-  
+    removeTodo: (state, id) => state.todos.splice(id, 1),
     
 }
 

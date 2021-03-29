@@ -68,11 +68,6 @@ export default {
 
     
   },
-
-  created: {
-    
-  }
-
 }
 
 </script>

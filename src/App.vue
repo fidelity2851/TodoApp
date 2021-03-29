@@ -5,7 +5,6 @@
       <div class="header_con">
         <div class="container px-0">
           <div class="col d-flex justify-content-between">
-            <span class="menu"> <i class="fas fa-bars"></i> </span>
             <span class="menu">TODO APP</span>
           </div>
         </div>
@@ -19,6 +18,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+
+    }
+  }
   
 }
 </script>

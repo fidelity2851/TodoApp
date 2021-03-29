@@ -7,12 +7,13 @@
         </div>
 
         <div class="col" v-if="UncompletedTask.length">
-          <div v-for="todo in UncompletedTask" :key="todo.id" :class="{done_con: todo.status}" name="task" class="col task_cont d-flex justify-content-between align-items-center mb-2" >
+          <div v-for="(todo, index) in UncompletedTask" :key="todo.id" :class="{done_con: todo.status}" name="task" class="col task_cont d-flex justify-content-between align-items-center mb-2" >
             <div class="col-8 d-flex align-items-center px-0">
               <input type="checkbox" class="mr-2" @click="ToggleTask(todo)" :checked="todo.status" />
               <p class="task_text" :class="{done: todo.status}">{{ todo.task }}</p>
             </div>
-            <span class="task_date"> <i class="far fa-calendar-alt mr-1"></i> {{ todo.date }}</span>
+            <span class="task_date">{{ todo.date }}</span>
+            <span @click="remove(index)" class="task_date text-danger"> <i class="far fa-trash-alt"></i> </span>
           </div>
         </div>
         <div class="col" v-else>
@@ -50,7 +51,7 @@
 
 
 <script>
-import {mapGetters, } from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 
 export default {
   name: "ManageTask",
@@ -62,10 +63,18 @@ export default {
   },
 
   methods: {
+    ...mapActions(['removeTodo']),
+    
     ToggleTask(task) {
       task.status = !task.status
       
     },
+
+    remove(id) {
+      console.log(id)
+      
+      this.removeTodo(id)
+    }
     
   },
 
