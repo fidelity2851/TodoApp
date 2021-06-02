@@ -12,7 +12,9 @@
               <input type="checkbox" class="mr-2" @click="ToggleTask(todo)" :checked="todo.status" />
               <p class="task_text" :class="{done: todo.status}">{{ todo.task }}</p>
             </div>
-            <span class="task_date">{{ todo.date }}</span>
+            <span class="task_date">
+              <i class="far fa-calendar-alt mr-1"></i> {{ todo.date }}</span>
+            </span>
             <span @click="remove(index)" class="task_date text-danger"> <i class="far fa-trash-alt"></i> </span>
           </div>
         </div>
