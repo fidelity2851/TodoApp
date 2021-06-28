@@ -13,6 +13,7 @@
               class="todo_box"
               placeholder="Add a Task"
               v-model="task"
+              required
             />
             <button type="submit" class="todo_btn">Add</button>
           </form>
@@ -50,7 +51,7 @@ export default {
     ...mapActions(['addTodo']),
 
     submitTodo() {
-      if (this.task != '') {
+      if (this.task != ' ') {
           this.addTodo(this.task),
           this.task = ''
       }

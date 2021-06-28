@@ -2,9 +2,7 @@
 //import { db } from '../../firebase/db'
 
 const state = {
-    todos: [
-        
-    ],
+    todos: JSON.parse(localStorage.getItem('Todos')) || [],
     showToast: false,
 }
 
@@ -14,34 +12,34 @@ const getters = {
 }
 
 const actions = {
-    async addTodo({ commit }, title) {
+    async addTodo({ state, commit }, title) {
         const response = {
             id: Math.random(),
             task: title,
             status: false,
             date: new Date().toLocaleDateString(),
         }
-        
         commit('newTodo', response),
+        localStorage.setItem('Todos', JSON.stringify(state.todos))
+
 
         state.showToast = true,
-        setTimeout(() => state.showToast = false, 1500)
+            setTimeout(() => state.showToast = false, 1500)
     },
 
     async removeTodo({ commit }, id) {
-
-
         commit('removeTodo', id)
+        localStorage.setItem('Todos', JSON.stringify(state.todos))
     }
-    
-    
+
+
 }
- 
+
 const mutations = {
     newTodo: (state, todo) => state.todos.unshift(todo),
 
     removeTodo: (state, id) => state.todos.splice(id, 1),
-    
+
 }
 
 
